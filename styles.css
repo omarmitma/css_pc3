@@ -1,0 +1,122 @@
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(13, 110, 253, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(13, 110, 253, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(13, 110, 253, 0);
+  }
+}
+
+@keyframes customSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.hero-title {
+  animation: slideDown 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.pulse-badge {
+  animation: pulseGlow 2s infinite;
+  border-radius: 50px;
+}
+
+.custom-loader {
+  width: 38px;
+  height: 38px;
+  border: 4px solid #e9ecef;
+  border-top: 4px solid #0d6efd;
+  border-radius: 50%;
+  animation: customSpin 0.9s linear infinite;
+}
+
+.skill-card {
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  background-color: #0d6efd !important;
+  color: white;
+}
+
+.card-2d {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  cursor: pointer;
+}
+
+.card-rotate:hover {
+  transform: rotate(5deg) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.card-scale:hover {
+  transform: scale(1.06);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18) !important;
+}
+
+.card-skew:hover {
+  transform: translateY(-8px) skewX(-2deg);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.perspective-box {
+  perspective: 1000px;
+}
+
+.card-3d-wrapper {
+  width: 100%;
+  height: 320px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.perspective-box:hover .card-3d-wrapper {
+  transform: rotateY(180deg) rotateX(5deg);
+}
+
+.card-3d-front,
+.card-3d-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.card-3d-front {
+  background: linear-gradient(135deg, #0d6efd, #0a58ca);
+  color: white;
+}
+
+.card-3d-back {
+  background: linear-gradient(135deg, #212529, #343a40);
+  color: white;
+  transform: rotateY(180deg);
+}
